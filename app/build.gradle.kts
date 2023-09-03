@@ -8,6 +8,10 @@ android {
     namespace = "ua.com.kotlin.simplegifviewer"
     compileSdk = 33
 
+    buildFeatures {
+        buildConfig = true
+    }
+
     defaultConfig {
         applicationId = "ua.com.kotlin.simplegifviewer"
         minSdk = 24
@@ -19,6 +23,9 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+        val giphyApiKey = project.findProperty("GIPHY_API_KEY") as String
+        buildConfigField("String", "GIPHY_API_KEY", "\"$giphyApiKey\"")
+
     }
 
     buildTypes {
@@ -54,8 +61,9 @@ dependencies {
     implementation(platform("androidx.compose:compose-bom:2023.03.00"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
-    implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
+    implementation("androidx.recyclerview:recyclerview:1.3.1")
+    implementation("androidx.appcompat:appcompat:1.6.1")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
@@ -71,4 +79,8 @@ dependencies {
     // Glide
     implementation("com.github.bumptech.glide:glide:4.11.0")
     annotationProcessor("com.github.bumptech.glide:compiler:4.11.0")
+    // Kotlin Coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
+    // Compose support for Glide
+    implementation("com.google.accompanist:accompanist-glide:0.15.0")
 }
