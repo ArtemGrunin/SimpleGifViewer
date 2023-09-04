@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">Simple Gif  Viewer</string>
+    <string name="app_name">Simple Gif Viewer</string>
     <string name="giphy_api_key">DROe0xlRpyI8H3AprW8uCWwUaF8y7bF9</string>
 </resources>
