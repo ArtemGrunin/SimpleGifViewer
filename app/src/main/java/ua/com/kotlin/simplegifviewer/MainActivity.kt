@@ -43,7 +43,6 @@ class MainActivity : AppCompatActivity() {
         val layoutManager = GridLayoutManager(this, 1)
         recyclerView.layoutManager = layoutManager
 
-        // Отримуємо розмір елементу з ресурсів (якщо потрібно)
         val itemWidth = getDimensionPixelSize(R.dimen.item_gif_width)
         val screenWidth = resources.displayMetrics.widthPixels
         val spanCount = screenWidth / itemWidth
@@ -55,7 +54,7 @@ class MainActivity : AppCompatActivity() {
                 val query = searchEditText.text.toString()
                 viewModel.searchGifs(query, offset = 0, limit = itemsPerPage)
                 searchEditText.text.clear()
-                hideKeyboard() // Додайте цей виклик, щоб ховати клавіатуру
+                hideKeyboard()
                 true
             } else {
                 false
@@ -70,7 +69,7 @@ class MainActivity : AppCompatActivity() {
                     val itemWidth = getDimensionPixelSize(R.dimen.item_gif_width)
                     val screenWidth = recyclerView.width
                     val spanCount = screenWidth / itemWidth
-                    layoutManager.spanCount = spanCount.toInt()
+                    layoutManager.spanCount = spanCount
                 }
             }
         })
