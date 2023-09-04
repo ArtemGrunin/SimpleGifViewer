@@ -10,8 +10,10 @@ import com.bumptech.glide.Glide
 import ua.com.kotlin.simplegifviewer.R
 import ua.com.kotlin.simplegifviewer.model.GifData
 
-class GifAdapter(private val context: Context, private val gifList: MutableList<GifData> = mutableListOf())
-    : RecyclerView.Adapter<GifAdapter.GifViewHolder>() {
+class GifAdapter(
+    private val context: Context,
+    private val gifList: MutableList<GifData> = mutableListOf()
+) : RecyclerView.Adapter<GifAdapter.GifViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GifViewHolder {
         val view = LayoutInflater
